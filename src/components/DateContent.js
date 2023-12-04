@@ -12,11 +12,15 @@ export default function DateContent(){
 
 function FuncComp() {
     const [_date, setDate] = useState((new Date()).toString());
-
+    const timer = setInterval(() => {
+      setDate(new Date().toString());
+      clearInterval(timer);
+    }, 1000);
     return (
         <div className="container">
         <p>Date: {_date}</p>
         <input type="button" value="date" onClick={() => setDate((new Date()).toString())}/>
+        {/* <input type="button" value="date" onClick={() => setDate((new Date()).toString())}/> */} 
         </div>
     );
 }
